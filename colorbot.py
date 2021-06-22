@@ -54,12 +54,12 @@ def main():
         
 
     # Configure proxy for PythonAnywhere 
-    proxy_host = 'proxy.server:3128'  # host and port of proxy
+    # proxy_host = 'proxy.server:3128'  # host and port of proxy
 
     # Retrieve an image of the specified color from the internet
     link = 'https://www.colorhexa.com/' + hex_code + '.png'
-    req = urlrequest.Request(link)
-    req.set_proxy(proxy_host, 'https')
+    # req = urlrequest.Request(link)
+    # req.set_proxy(proxy_host, 'https')
     path = 'img/' + link.split('/')[-1]
     urlrequest.urlretrieve(link, path)
 

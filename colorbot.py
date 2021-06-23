@@ -4,12 +4,14 @@ import random
 import time
 import schedule
 from urllib import request as urlrequest
+import os 
+from os import environ
 
 HEX_VALUES = '123456789ABCDEF'
-API_KEY = 'dvxklPyBNJ0ecTR11wvdaDX0b'
-API_KEY_SECRET = 'iU06s7iWwRUA005fU2WI3GhAdJ9InrJPOOzDjXfrsL5xYH6XyZ'
-ACCESS_TOKEN = '1406724795488686082-Uj5uXj67FnAiT48Fu7ObeedjSFbQpN'
-ACCESS_TOKEN_SECRET = '9bzAM97fcStEZ8UxExrDhMkpZPDjqQHxqVvVrJtDo3QPq'
+CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_SECRET = environ['CONSUMER_SECRET']
+ACCESS_KEY = environ['ACCESS_KEY']
+ACCESS_SECRET = environ['ACCESS_SECRET']
 
 def get_rand_hex():
     """

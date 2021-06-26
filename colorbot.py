@@ -40,8 +40,8 @@ def post_tweet(img, hex_code):
     """
     Creates and posts a tweet with the color name, image, rgb and hex code. 
     """
-    auth = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
-    auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+    auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+    auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
     api = tweepy.API(auth)
     name = '"' + palette.colors.get(hex_code).upper() + '"'             # get color name 
     rgb = str(tuple(int(hex_code[i:i+2], 16) for i in (0, 2, 4)))       # get color rgb 
@@ -71,7 +71,7 @@ def main():
     urlrequest.urlretrieve(link, path)
 
     # Set schedule to post tweet every day at 4:20PM (PST)
-    schedule.every().day.at('20:50').do(lambda: post_tweet(path, hex_code))
+    schedule.every().day.at('15:45').do(lambda: post_tweet(path, hex_code))
     while True:
         schedule.run_pending()
         time.sleep(1)

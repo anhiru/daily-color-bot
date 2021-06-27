@@ -1,1 +1,1 @@
-web: python colorbot.py
+worker: python colorbot.py

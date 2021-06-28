@@ -4,19 +4,21 @@ import random
 import time
 import schedule
 from urllib import request as urlrequest
-import os 
 from os import environ
+from dotenv import load_dotenv
+
+load_dotenv()
 
 HEX_VALUES = '123456789ABCDEF'
-# CONSUMER_KEY = environ['CONSUMER_KEY']
-# CONSUMER_SECRET = environ['CONSUMER_SECRET']
-# ACCESS_KEY = environ['ACCESS_KEY']
-# ACCESS_SECRET = environ['ACCESS_SECRET']
+CONSUMER_KEY = environ['TWITTER_CONSUMER_KEY']
+CONSUMER_SECRET = environ['TWITTER_CONSUMER_SECRET']
+ACCESS_KEY = environ['TWITTER_ACCESS_KEY']
+ACCESS_SECRET = environ['TWITTER_ACCESS_SECRET']
 
-CONSUMER_KEY = 'k6eOByVmpbAfWXkxjIVeZK3cL'
-CONSUMER_SECRET = 'MbHI6pWn1bqIf19UkdQi3nRzODzho0YuwVj4S6AEsjf539BDg7'
-ACCESS_KEY = '1406724795488686082-1MP9AQGH9pfkjAkuNsrQ1wYKzw9GNG'
-ACCESS_SECRET = 'zXRHKatjIMB1SuDatTbvv7l1aAJu7wKP8jb9olM4rrtM4'
+# CONSUMER_KEY = 'k6eOByVmpbAfWXkxjIVeZK3cL'
+# CONSUMER_SECRET = 'MbHI6pWn1bqIf19UkdQi3nRzODzho0YuwVj4S6AEsjf539BDg7'
+# ACCESS_KEY = '1406724795488686082-1MP9AQGH9pfkjAkuNsrQ1wYKzw9GNG'
+# ACCESS_SECRET = 'zXRHKatjIMB1SuDatTbvv7l1aAJu7wKP8jb9olM4rrtM4'
 
 def get_rand_hex():
     """
@@ -71,7 +73,7 @@ def main():
     urlrequest.urlretrieve(link, path)
 
     # Set schedule to post tweet every day at 4:20PM (PST)
-    schedule.every().day.at('10:32').do(lambda: post_tweet(path, hex_code))
+    schedule.every().day.at('20:52').do(lambda: post_tweet(path, hex_code))
     while True:
         schedule.run_pending()
         time.sleep(1)

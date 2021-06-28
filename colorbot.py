@@ -72,8 +72,8 @@ def main():
     path = 'img/' + link.split('/')[-1]
     urlrequest.urlretrieve(link, path)
 
-    # Set schedule to post tweet every day at 4:20PM (PST)
-    # schedule.every().day.at('01:55').do(lambda: post_tweet(path, hex_code))
+    # Set schedule to post tweet every day at 12:00PM (PST)
+    # schedule.every().day.at('12:00').do(lambda: post_tweet(path, hex_code))
     # while True:
     #     schedule.run_pending()
     #     time.sleep(1)

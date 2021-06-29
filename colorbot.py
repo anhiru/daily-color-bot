@@ -69,9 +69,9 @@ def main():
     # req.set_proxy(proxy_host, 'https')
     
 
-    # Set schedule to post tweet every day at 12:00PM (PST)
+    # Set schedule to post tweet every day at 4:20PM (PST)
     sched = BlockingScheduler(timezone='US/Pacific')
-    sched.add_job(lambda: post_tweet(path, hex_code), 'cron', hour=14, minute=20)
+    sched.add_job(lambda: post_tweet(path, hex_code), 'cron', hour=16, minute=20)
     sched.start()
     try:
         # This is here to simulate application activity (which keeps the main thread alive).

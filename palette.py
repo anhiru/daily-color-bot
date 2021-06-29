@@ -880,7 +880,7 @@ colors = {
     "8A8F8A": "Stack",
     "8A9A5B": "Moss Green",
     "8AB9F1": "Jordy Blue",
-    "8B0000": "DarkRed",
+    "8B0000": "Dark Red",
     "8B008B": "Dark Magenta",
     "8B00FF": "Electric Violet",
     "8B0723": "Monarch",
@@ -1092,7 +1092,7 @@ colors = {
     "ADD8E6": "Light Blue",
     "ADDFFF": "Light Day Blue",
     "ADE6C4": "Padua",
-    "ADFF2F": "GreenYellow",
+    "ADFF2F": "Green Yellow",
     "AE4560": "Hippie Pink",
     "AE6020": "Desert",
     "AE809E": "Bouquet",
@@ -1969,7 +1969,7 @@ colors = {
     "FFD38C": "Grandis",
     "FFD59A": "Caramel",
     "FFD700": "Gold",
-    "FFD800": "School bus Yellow",
+    "FFD800": "School Bus Yellow",
     "FFD801": "Rubber Ducky Yellow",
     "FFD8D9": "Cosmos",
     "FFDAB9": "Peach Puff",
@@ -2054,7 +2054,7 @@ colors = {
     "FFFFB4": "Portafino",
     "FFFFE0": "Light Yellow",
     "FFFFF0": "Ivory",
-    "FFFFFF": "White"
+    "FFFFFF": "White",
 }
 
 # od = collections.OrderedDict(sorted(colors.items()))

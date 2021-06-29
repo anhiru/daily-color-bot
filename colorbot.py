@@ -76,7 +76,7 @@ def main():
     # Set schedule to post tweet every day at 12:00PM (PST)
     sched = BlockingScheduler({'apscheduler.timezone': 'US/Pacific'})
     sched.start
-    sched.add_cron_job(lambda: post_tweet(path, hex_code), hour='13')
+    sched.add_job(lambda: post_tweet(path, hex_code), 'cron', hour=13, minute=10)
     try:
         # This is here to simulate application activity (which keeps the main thread alive).
         while True:

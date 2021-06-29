@@ -1,7 +1,6 @@
-import tweepy
 import palette
+import tweepy
 import random
-# import schedule
 import time
 from apscheduler.schedulers.blocking import BlockingScheduler
 from urllib import request as urlrequest
@@ -15,11 +14,6 @@ CONSUMER_KEY = environ['TWITTER_CONSUMER_KEY']
 CONSUMER_SECRET = environ['TWITTER_CONSUMER_SECRET']
 ACCESS_KEY = environ['TWITTER_ACCESS_KEY']
 ACCESS_SECRET = environ['TWITTER_ACCESS_SECRET']
-
-# CONSUMER_KEY = 'k6eOByVmpbAfWXkxjIVeZK3cL'
-# CONSUMER_SECRET = 'MbHI6pWn1bqIf19UkdQi3nRzODzho0YuwVj4S6AEsjf539BDg7'
-# ACCESS_KEY = '1406724795488686082-1MP9AQGH9pfkjAkuNsrQ1wYKzw9GNG'
-# ACCESS_SECRET = 'zXRHKatjIMB1SuDatTbvv7l1aAJu7wKP8jb9olM4rrtM4'
 
 def get_rand_hex():
     """
@@ -63,19 +57,21 @@ def main():
         filename.write(hex_code + '\n')
         
 
-    # Configure proxy for PythonAnywhere 
-    # proxy_host = 'proxy.server:3128'  # host and port of proxy
 
     # Retrieve an image of the specified color from the internet
     link = 'https://www.colorhexa.com/' + hex_code + '.png'
-    # req = urlrequest.Request(link)
-    # req.set_proxy(proxy_host, 'https')
     path = 'img/' + link.split('/')[-1]
     urlrequest.urlretrieve(link, path)
 
+    # Configure proxy for PythonAnywhere 
+    # proxy_host = 'proxy.server:3128'  # host and port of proxy
+    # req = urlrequest.Request(link)
+    # req.set_proxy(proxy_host, 'https')
+    
+
     # Set schedule to post tweet every day at 12:00PM (PST)
     sched = BlockingScheduler(timezone='US/Pacific')
-    sched.add_job(lambda: post_tweet(path, hex_code), 'cron', hour=14, minute=10)
+    sched.add_job(lambda: post_tweet(path, hex_code), 'cron', hour=14, minute=20)
     sched.start()
     try:
         # This is here to simulate application activity (which keeps the main thread alive).

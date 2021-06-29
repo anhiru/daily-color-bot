@@ -1,8 +1,9 @@
 import tweepy
 import palette
 import random
+# import schedule
 import time
-import schedule
+from apscheduler.schedulers.blocking import BlockingScheduler
 from urllib import request as urlrequest
 from os import environ
 from dotenv import load_dotenv
@@ -73,12 +74,23 @@ def main():
     urlrequest.urlretrieve(link, path)
 
     # Set schedule to post tweet every day at 12:00PM (PST)
+    sched = BlockingScheduler({'apscheduler.timezone': 'US/Pacific'})
+    sched.start
+    sched.add_cron_job(lambda: post_tweet(path, hex_code), hour='12')
+    try:
+        # This is here to simulate application activity (which keeps the main thread alive).
+        while True:
+            time.sleep(1)
+    except (KeyboardInterrupt, SystemExit):
+        # Not strictly necessary if daemonic mode is enabled but should be done if possible
+        sched.shutdown()
+
     # schedule.every().day.at('12:00').do(lambda: post_tweet(path, hex_code))
     # while True:
     #     schedule.run_pending()
     #     time.sleep(1)
 
-    post_tweet(path, hex_code)
+    # post_tweet(path, hex_code)
 
 
 if __name__ == '__main__':
